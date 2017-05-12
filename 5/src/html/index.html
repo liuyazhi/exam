@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        h1{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body ng-app="myapp">
+<div id="wrapper" ng-controller="ft">
+    <div class="product">
+        <h1 class="del" ng-click="delfn()">-</h1>
+        <h1 ng-bind="num"></h1>
+        <h1 class="add" ng-click="addfn()">+</h1>
+    </div>
+</div>
+<script type="text/javascript" src="../js/common/angular.js"></script>
+<script type="text/javascript" src="../js/common/jquery.js"></script>
+<script type="text/javascript">
+    var app=angular.module('myapp',[]);
+    app.controller('ft',function($scope){
+        $scope.num=1;
+        $scope.delfn=function(){
+            $scope.num--;
+            if($scope.num<1){
+                alert('不能少于1');
+                $scope.num=1;
+            }
+        };
+        $scope.addfn=function(){
+            $scope.num++;
+            if($scope.num>5){
+                alert('不能大于5');
+                $scope.num=5;
+            }
+        }
+    })
+</script>
+</body>
+</html>
