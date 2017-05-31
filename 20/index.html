@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>20</title>
+    <style>
+        h1{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ft">
+    <h1 ng-click="delFn()">-</h1>
+    <h1 ng-bind="num">1</h1>
+    <h1 ng-click="addFn()">+</h1>
+</div>
+
+<script type="text/javascript" src="js/common/angular.js"></script>
+<script type="text/javascript">
+var app=angular.module('myapp',[]);
+    app.controller('ft',function($scope){
+        $scope.num=1;
+        $scope.delFn=function(){
+            $scope.num--;
+            if($scope.num<1){
+                alert('最小数量为1');
+                $scope.num=1;
+            }
+        };
+        $scope.addFn=function(){
+            $scope.num++;
+            if($scope.num>5){
+                alert('最大数量为5');
+                $scope.num=5;
+            }
+        }
+    })
+</script>
+</body>
+</html>
